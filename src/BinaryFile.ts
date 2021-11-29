@@ -3,13 +3,14 @@ import { File } from './File';
 
 export class BinaryFile extends File {
     constructor(
-        public readonly name: string,
         public parent: Directory,
-        private readonly data: string = "",
+        public readonly name?: string,
+        private readonly data: string = '',
     ) {
-        super(name, parent);
+        super(parent, name);
     }
 
     get content(): string {
+        return this.data;
     }
 }

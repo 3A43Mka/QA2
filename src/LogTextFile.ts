@@ -5,15 +5,17 @@ export class LogTextFile extends File {
     private data: string = "";
 
     constructor(
-        public readonly name: string,
         public parent: Directory,
+        public readonly name?: string,
     ) {
-        super(name, parent);
+        super(parent, name);
     }
 
     public append(data: string): void {
+        this.data += `${data}\n`;
     }
 
     get content(): string {
+        return this.data;
     }
 }
